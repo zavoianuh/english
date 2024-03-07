@@ -18,25 +18,70 @@ function toggleTranslation(id) {
     }
 }
 
-function checkAnswers() {
-    var answers = ["is","is", "am", "is", "is", "are", "is"];
-    var userAnswers = [];
-    for (var i = 1; i <= 7; i++) {
-        userAnswers.push(document.getElementById('answer' + i).value.trim().toLowerCase());
-    }
-    var correct = true;
-    for (var i = 0; i < answers.length; i++) {
-        if (answers[i] !== userAnswers[i]) {
-            correct = false;
-            break;
-        }
-    }
-    var resultMessage = document.getElementById('resultMessage');
-    if (correct) {
-        resultMessage.innerHTML = "<p style='color: green;'>Well done! All your answers are correct.</p>";
+function checkSentence1() {
+    var answer1 = document.getElementById('answer1').value.trim().toLowerCase();
+    var answer2 = document.getElementById('answer2').value.trim().toLowerCase();
+    var message1 = document.getElementById('message1');
+    if (answer1 === "is" && answer2 === "is") {
+        message1.innerHTML = "Correct";
+        message1.style.color = "green";
     } else {
-        resultMessage.innerHTML = "<p style='color: red;'>Some answers are incorrect. Please try again.</p>";
+        message1.innerHTML = "Incorrect";
+        message1.style.color = "red";
     }
+    message1.style.display = "block";
+}
+function checkSentence2() {
+    var answer3 = document.getElementById('answer3').value.trim().toLowerCase();
+    var message2 = document.getElementById('message2');
+    if (answer3 === "am") {
+        message2.innerHTML = "Correct";
+        message2.style.color = "green";
+    } else {
+        message2.innerHTML = "Incorrect";
+        message2.style.color = "red";
+    }
+    message2.style.display = "block";
+}
+
+function checkSentence3() {
+    var answer4 = document.getElementById('answer4').value.trim().toLowerCase();
+    var answer5 = document.getElementById('answer5').value.trim().toLowerCase();
+    var message3 = document.getElementById('message3');
+    if (answer4 === "is" && answer5 === "is") {
+        message3.innerHTML = "Correct";
+        message3.style.color = "green";
+    } else {
+        message3.innerHTML = "Incorrect";
+        message3.style.color = "red";
+    }
+    message3.style.display = "block";
+}
+
+function checkSentence4() {
+    var answer6 = document.getElementById('answer6').value.trim().toLowerCase();
+    var message4 = document.getElementById('message4');
+    if (answer6 === "are") {
+        message4.innerHTML = "Correct";
+        message4.style.color = "green";
+    } else {
+        message4.innerHTML = "Incorrect";
+        message4.style.color = "red";
+    }
+    message4.style.display = "block";
+}
+
+function checkSentence5() {
+    var answer7 = document.getElementById('answer7').value.trim().toLowerCase();
+    var message5 = document.getElementById('message5');
+    if (answer7 === "is") {
+        message5.innerHTML = "Correct";
+        message5.style.color = "green";
+    } else {
+        message5.innerHTML = "Incorrect";
+        message5.style.color = "red";
+    }
+    message5.style.display = "block";
 }
 
 </script>
@@ -44,40 +89,52 @@ function checkAnswers() {
 <body>
     <div class="sentence-container">
         <div class="original-text">Ann <input type="text" id="answer1" size="5"> ill. She <input type="text" id="answer2" size="5"> in bed.
-            <input type="checkbox" onclick="toggleTranslation(1)"> 
+            <button onclick="checkSentence1()">Verifica</button>
+            <input type="checkbox" onclick="toggleTranslation(1)">Traducere
+            <div id="message1"></div>
+
         </div>
         <div class="translation" id="translation1">Ann este bolnavă. Ea este în pat.</div>
     </div>
     
+    
     <div class="sentence-container">
         <div class="original-text">I <input type="text" id="answer3" size="5"> thirsty.
-            <input type="checkbox" onclick="toggleTranslation(2)">
+            <button onclick="checkSentence2()">Verifica</button>
+            <input type="checkbox" onclick="toggleTranslation(2)">Traducere
+            <div id="message2"></div>
         </div>
         <div class="translation" id="translation2">Mi-e sete.</div>
     </div>
     
     <div class="sentence-container">
         <div class="original-text">Mr Peterson <input type="text" id="answer4" size="5"> a very old man. He <input type="text" id="answer5" size="5"> 93.
-            <input type="checkbox" onclick="toggleTranslation(3)">
+            <button onclick="checkSentence3()">Verifica</button>
+            <input type="checkbox" onclick="toggleTranslation(3)">Traducere
+            <div id="message3"></div>
         </div>
         <div class="translation" id="translation3">Domnul Peterson este un bărbat foarte în vârstă. El are 93 de ani.</div>
     </div>
     
     <div class="sentence-container">
         <div class="original-text">These chairs <input type="text" id="answer6" size="5"> comfortable.
-            <input type="checkbox" onclick="toggleTranslation(4)">
+            <button onclick="checkSentence4()">Verifica</button>
+            <input type="checkbox" onclick="toggleTranslation(4)">Traducere
+            <div id="message4"></div>
         </div>
         <div class="translation" id="translation4">Aceste scaune sunt confortabile.</div>
     </div>
     
     <div class="sentence-container">
         <div class="original-text">The weather is nice today. It <input type="text" id="answer7" size="5"> warm and sunny.
-            <input type="checkbox" onclick="toggleTranslation(5)">
+            <button onclick="checkSentence5()">Verifica</button>
+            <input type="checkbox" onclick="toggleTranslation(5)">Traducere
+            <div id="message5"></div>
         </div>
         <div class="translation" id="translation5">Vremea este frumoasă astăzi. Este cald și însorit.</div>
     </div>
     
-    <button onclick="checkAnswers()">Check Answers</button>
+    
     <div id="resultMessage"></div>
     
 </body>
