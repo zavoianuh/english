@@ -72,3 +72,28 @@ input[type="text"] {
     color: red;
     margin-left: 10px;
 }
+
+@media only screen and (max-width: 600px) {
+    .sentence-container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .original-text, .translation {
+        width: auto; /* Adjusts from flex to full width */
+        text-align: center; /* Centers text for better readability on small screens */
+    }
+
+    input[type="text"] {
+        width: 90%; /* Makes the input fields wider to take advantage of the screen width */
+        margin: 10px 0; /* Adds more space around the input fields */
+    }
+
+    button {
+        margin-top: 10px; /* Adds space above the button so it's not too close to whatever is above it */
+    }
+
+    .error-message {
+        display: block; /* Ensures that error messages are always displayed (remove this if you want them to only display when there's an error) */
+    }
+}
